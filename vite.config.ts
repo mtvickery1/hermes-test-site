@@ -5,7 +5,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/hermes-test-site/',
   build: {
-    outDir: 'dist',
+    outDir: 'docs',
     sourcemap: true,
   },
   server: {
