@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+<canvas id="pong" width="800" height="600" style="background:#000; display:block; margin:0 auto;"></canvas>
+<script>
+const canvas = document.getElementById('pong');
+const ctx = canvas.getContext('2d');
+let ball = {x:400, y:300, dx:4, dy:4, r:10};
+function draw() {
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0,0,800,600);
+    ctx.fillStyle = 'white';
+    ctx.beginPath();
+    ctx.arc(ball.x, ball.y, ball.r, 0, Math.PI*2);
+    ctx.fill();
+    ball.x += ball.dx;
+    ball.y += ball.dy;
+    if(ball.x < 0 || ball.x > 800) ball.dx *= -1;
+    if(ball.y < 0 || ball.y > 600) ball.dy *= -1;
+    requestAnimationFrame(draw);
+}
+draw();
+</script>
+</body>
+</html>
